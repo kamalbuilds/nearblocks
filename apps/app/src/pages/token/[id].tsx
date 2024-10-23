@@ -22,6 +22,7 @@ import { useBosComponents } from '@/hooks/useBosComponents';
 import Comment from '@/components/skeleton/common/Comment';
 import { useAuthStore } from '@/stores/auth';
 import { fetchData } from '@/utils/fetchData';
+import CoinGeckoAIAgent from '@/components/CoinGeckoAIAgent';
 
 const network = env('NEXT_PUBLIC_NETWORK_ID');
 const ogUrl = env('NEXT_PUBLIC_OG_URL');
@@ -264,6 +265,15 @@ const TokenDetails = ({
             transfers={transfers}
             holders={holders}
           />
+          {token && (
+            <VmComponent
+              src={components?.coinGeckoAIAgent}
+              props={{
+                network,
+                tokenSymbol: token.symbol,
+              }}
+            />
+          )}
           <div className="py-6"></div>
           {a && (
             <TokenFilter

@@ -3,6 +3,8 @@ const accessKey = process.env.API_ACCESS_KEY;
 
 const fetcher = async (url: string, options = {} as any) => {
   try {
+
+    console.log(baseURL,"base url >>>>" , accessKey , "access key >>>>" , url , "url >>>>")
     const response = await fetch(`${baseURL}${url}`, {
       ...options,
       headers: {
@@ -16,6 +18,8 @@ const fetcher = async (url: string, options = {} as any) => {
     }
 
     const data = await response.json();
+
+    console.log(data , "data >>>>")
     return data;
   } catch (error) {
     console.error('Fetch error:', error);

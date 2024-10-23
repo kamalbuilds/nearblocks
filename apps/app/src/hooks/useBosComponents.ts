@@ -1,7 +1,7 @@
 import { componentsByNetworkId } from '@/data/bos-components';
 import { networkId } from '@/utils/config';
 
-export function useBosComponents() {
+export const useBosComponents = () => {
   const components = componentsByNetworkId[networkId];
 
   if (!components) {
@@ -10,5 +10,8 @@ export function useBosComponents() {
     );
   }
 
-  return components;
-}
+  return {
+    ...components,
+    coinGeckoAIAgent: 'your-account.near/widget/CoinGeckoAIAgent',
+  };
+};
