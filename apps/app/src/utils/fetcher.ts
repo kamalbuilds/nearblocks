@@ -19,7 +19,6 @@ const fetcher = async (url: string, options = {} as any) => {
 
     const data = await response.json();
 
-    console.log(data , "data >>>>")
     return data;
   } catch (error) {
     console.error('Fetch error:', error);

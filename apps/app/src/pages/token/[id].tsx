@@ -265,15 +265,8 @@ const TokenDetails = ({
             transfers={transfers}
             holders={holders}
           />
-          {token && (
-            <VmComponent
-              src={components?.coinGeckoAIAgent}
-              props={{
-                network,
-                tokenSymbol: token.symbol,
-              }}
-            />
-          )}
+      
+          <CoinGeckoAIAgent tokenSymbol="USDT" />
           <div className="py-6"></div>
           {a && (
             <TokenFilter
